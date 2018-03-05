@@ -1,0 +1,401 @@
+[
+    {
+        "id": "a7cf4cee.05631",
+        "type": "tab",
+        "label": "Lock Flow",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "13c71fc7.d95b4",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "",
+        "broker": "172.24.42.41",
+        "port": "8083",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": ""
+    },
+    {
+        "id": "812095a.73d4068",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "Kobs",
+        "broker": "172.24.42.82",
+        "port": "8083",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": ""
+    },
+    {
+        "id": "f799a07f.ceab8",
+        "type": "serial-port",
+        "z": "",
+        "serialport": "COM3",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": true
+    },
+    {
+        "id": "a20be9e8.4b1848",
+        "type": "mongodb",
+        "z": "",
+        "hostname": "127.0.0.1",
+        "port": "27017",
+        "db": "rediot",
+        "name": ""
+    },
+    {
+        "id": "a223538d.cda7a",
+        "type": "ui_group",
+        "z": "",
+        "name": "Estado del deposito[home]",
+        "tab": "",
+        "disp": true,
+        "width": "6",
+        "collapse": true
+    },
+    {
+        "id": "ddc85fc3.cb75a",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "",
+        "broker": "172.24.42.41",
+        "port": "8083",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": ""
+    },
+    {
+        "id": "17cf9bd1.7e2e04",
+        "type": "serial-port",
+        "z": "",
+        "serialport": "COM4",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": true
+    },
+    {
+        "id": "9a2842bb.bd479",
+        "type": "mongodb",
+        "z": "",
+        "hostname": "127.0.0.1",
+        "port": "27017",
+        "db": "rediot",
+        "name": "Mongo"
+    },
+    {
+        "id": "7fc91c03.784b34",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Home",
+        "icon": "dashboard"
+    },
+    {
+        "id": "65d72cfb.f7dd64",
+        "type": "ui_group",
+        "z": "",
+        "name": "Default",
+        "tab": "7fc91c03.784b34",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "17b75e96.a9e401",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "Kobs",
+        "broker": "172.24.42.82",
+        "port": "8083",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": ""
+    },
+    {
+        "id": "d0c64039.337c5",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "89a4cd2e.cd22b",
+        "type": "mqtt out",
+        "z": "a7cf4cee.05631",
+        "name": "alertar limite",
+        "topic": "limite/",
+        "qos": "0",
+        "retain": "false",
+        "broker": "17b75e96.a9e401",
+        "x": 839.1000366210938,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "976443b0.da89e",
+        "type": "serial in",
+        "z": "a7cf4cee.05631",
+        "name": "arduino",
+        "serial": "f799a07f.ceab8",
+        "x": 160.5,
+        "y": 516,
+        "wires": [
+            [
+                "caa2ecb4.f0d61",
+                "fbc56316.6d73b"
+            ]
+        ]
+    },
+    {
+        "id": "caa2ecb4.f0d61",
+        "type": "debug",
+        "z": "a7cf4cee.05631",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 381,
+        "y": 193,
+        "wires": []
+    },
+    {
+        "id": "6f35d184.4d9f9",
+        "type": "switch",
+        "z": "a7cf4cee.05631",
+        "name": "Elegir",
+        "property": "payload.identificador",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 554,
+        "y": 574,
+        "wires": [
+            [
+                "89a4cd2e.cd22b",
+                "3536ae97.d9cda2"
+            ],
+            [
+                "c0aa336c.0696d"
+            ],
+            [
+                "c9866888.86fb08"
+            ]
+        ]
+    },
+    {
+        "id": "fbc56316.6d73b",
+        "type": "function",
+        "z": "a7cf4cee.05631",
+        "name": "Format",
+        "func": "var res = {};\nvar tempArray = [];\nvar tipo = \"\";\nvar alerta = \"\";\nvar identificador = \"\";\nvar infoadicional = \"\";\n\ntempString = msg.payload;\ntempArray = tempString.split(\"&&\");\ntipo = tempArray[0].replace(\"\\r\\n\", \"\");\nalerta = tempArray[1].replace(\"\\r\\n\", \"\");\nidentificador = tempArray[2].replace(\"\\r\\n\", \"\");\ninfoadicional = tempArray[3].replace(\"\\r\\n\", \"\");\nres.topic = \"alerta\";\nres.payload = {};\n\nres.payload = {\n    \"tipo\": tipo, \n    \"alerta\": alerta, \n    \"identificador\": parseInt(identificador),\n    \"informacion adicional\": infoadicional\n}\n\nreturn res;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 337,
+        "y": 563,
+        "wires": [
+            [
+                "6f35d184.4d9f9",
+                "e206d233.78496"
+            ]
+        ]
+    },
+    {
+        "id": "c0aa336c.0696d",
+        "type": "mqtt out",
+        "z": "a7cf4cee.05631",
+        "name": "alertar presencia",
+        "topic": "presencia/",
+        "qos": "0",
+        "retain": "false",
+        "broker": "812095a.73d4068",
+        "x": 858,
+        "y": 585,
+        "wires": []
+    },
+    {
+        "id": "c9866888.86fb08",
+        "type": "mqtt out",
+        "z": "a7cf4cee.05631",
+        "name": "alertar excedido",
+        "topic": "excedidos/",
+        "qos": "0",
+        "retain": "false",
+        "broker": "812095a.73d4068",
+        "x": 812,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "e206d233.78496",
+        "type": "debug",
+        "z": "a7cf4cee.05631",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 509,
+        "y": 431,
+        "wires": []
+    },
+    {
+        "id": "3536ae97.d9cda2",
+        "type": "debug",
+        "z": "a7cf4cee.05631",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 814,
+        "y": 518,
+        "wires": []
+    }
+]
