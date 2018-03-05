@@ -215,11 +215,6 @@ void loop() {
           lastValue = true;
           Serial.println("Oprimido");
         }
-        else if(!lastValue){
-          color = "AZUL";
-          azul();
-          lastValue = false; 
-        }
         if(digitos==4){
           for(int i = 0; i<4 && !acabe; i++){
             if(clave.equals(claves[i])){
