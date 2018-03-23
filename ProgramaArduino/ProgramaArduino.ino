@@ -15,8 +15,11 @@ int val = 0;
 int redPin = 9;
 int greenPin = 10;
 int bluePin= 11;
-
+int buzzPin=3;
 long currTime;
+double batteryCharge;
+const double MIN_VOLTAGE = 1.2;
+const int BATTERY_LED = 8;
 
 boolean asterisco = false;
 boolean acabe = false;
@@ -33,6 +36,7 @@ int incorrectos = 0;
 
 unsigned long startTime;
 unsigned long timedos;
+unsigned long timeBattery;
 boolean flag;
 boolean lastValue = false;
 
@@ -40,7 +44,39 @@ String color = "AZUL";
 
 String clave = "";
 int digitos = 0;
-
+void buzz()
+{
+  digitalWrite(buzzPin,HIGH);
+  delay(2000);
+  digitalWrite(buzzPin,LOW);
+}
+void checkBattery()
+{
+  batteryCharge = (analogRead(3)*5.4)/1024;
+  Serial.println(batteryCharge);
+  if(batteryCharge<=MIN_VOLTAGE) {
+    digitalWrite(BATTERY_LED,HIGH);
+    Serial.println("LOW BATTERY");
+    if(timeBattery>0)
+    {
+      if(timeBattery-millis()>=30000)
+      {
+         buzz();
+      }
+    }
+    else
+    {
+      timeBattery=millis();
+      delay(2000);
+      digitalWrite(buzzPin,LOW);
+    }
+  }
+    else {
+    digitalWrite(BATTERY_LED,LOW);
+    timeBattery=0;
+    digitalWrite(buzzPin,LOW);
+  }
+}
 void azul(){
   analogWrite(redPin, 0);
   analogWrite(greenPin, 255);
@@ -66,6 +102,7 @@ void setup() {
     pinMode(redPin, OUTPUT);
     pinMode(greenPin, OUTPUT);
     pinMode(bluePin, OUTPUT);
+    pinMode(buzzPin,OUTPUT);
     color = "AZUL";
     azul();
     ir.enableIRIn();
@@ -106,6 +143,7 @@ void check(){
       Serial.println("Emergencia&&LimiteDeTiempo&&0&&Sin Info"); 
       rojo();
       color="ROJO";
+      buzz();
       
       } 
         }
@@ -115,6 +153,11 @@ void check(){
 void loop() {
     check();
     check2();
+    checkBattery();
+    if(color.equals("ROJO"))
+    {
+      buzz();
+    }
     if (ir.decode(&read)){
         int valor = (read.value);
         if(valor == 26775){
@@ -231,6 +274,7 @@ void loop() {
           if (!encontrado){
               rojo();
               color = "ROJO";
+              buzz();
               timedos = millis();
               delay(1000);
               azul();
@@ -241,6 +285,7 @@ void loop() {
               Serial.println("Emergencia&&IntentosExcedidos&&2&&SinInfo"); 
               rojo();
               color = "ROJO";
+              buzz();
               delay(30000);
               azul();
               color = "AZUL";
