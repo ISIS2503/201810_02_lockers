@@ -9,7 +9,7 @@
 IRrecv ir(IR_PIN);
 
 int ledPin = 5;                // choose the pin for the LED
-int inputPin = 4;               // choose the input pin (for PIR sensor)
+int inputPin = 2;               // choose the input pin (for PIR sensor)
 int pirState = LOW;             // we start, assuming no motion detected
 int val = 0;
 int redPin = 9;
@@ -19,7 +19,7 @@ int buzzPin=3;
 long currTime;
 double batteryCharge;
 const double MIN_VOLTAGE = 1.2;
-const int BATTERY_LED = 8;
+const int BATTERY_LED = 7;
 
 boolean asterisco = false;
 boolean acabe = false;
@@ -53,14 +53,15 @@ void buzz()
 void checkBattery()
 {
   batteryCharge = (analogRead(3)*5.4)/1024;
-  Serial.println(batteryCharge);
   if(batteryCharge<=MIN_VOLTAGE) {
     digitalWrite(BATTERY_LED,HIGH);
-    Serial.println("LOW BATTERY");
+    Serial.println("Emergency&&BatteryLow&&3&&cambie La Bateria");
+    
     if(timeBattery>0)
     {
-      if(timeBattery-millis()>=30000)
+      if(((-timeBattery+millis())%30000)<100)
       {
+        
          buzz();
       }
     }
@@ -250,6 +251,7 @@ void loop() {
           color = "AZUL";
           azul();
           lastValue = true;
+          currTime=millis();
           Serial.println("OK"); 
         }
         else if(valor == -1 && lastValue){
@@ -257,6 +259,13 @@ void loop() {
           verde();
           lastValue = true;
           Serial.println("Oprimido");
+        }
+        else if(valor==25245 && color.equals("VERDE")){
+          color = "AZUL";
+          azul();
+          asterisco = true;
+          lastValue = false;
+          Serial.println("no Oprimido");
         }
         if(digitos==4){
           for(int i = 0; i<4 && !acabe; i++){

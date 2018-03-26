@@ -1,0 +1,2 @@
+Debido a que el trabajo se desarrolló y terminó fuera de la universidad, por temas de red inalámbrica, no se pudo conectar a la red con la que se inició este (Seneca). Entonces fue necesario realizar
+un servidor Mosquitto localmente. Debido a estas circunstancias, será necesario cambiar la IP del modulo wifi (al momento de sustentar) con el que estaba programado originalmente como asi mismo en el flujo NODE RED.
