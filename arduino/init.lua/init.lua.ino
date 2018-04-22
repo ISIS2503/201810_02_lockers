@@ -5,7 +5,7 @@
 #define TOPIC_SUBSCRIBE        "presencia/"
 #define TOPIC_SUBSCRIBE2        "excedidos/"
 #define TOPIC_SUBSCRIBE3       "limte/"
-#define TOPIC_SUBSCRIBE4       "pass/"
+#define TOPIC_SUBSCRIBE4       "claves/"
 #define TOPIC_PUBLISH          "home/"
 #define SIZE_BUFFER_DATA       50
 
