@@ -98,37 +98,21 @@ String clave = "";
 int digitos = 0;
 
 boolean compareKey(String key) {
-
   int acc = 3;
-
   int codif, arg0, arg1;
-
   for(int i=0; i<3; i++) {
-
     codif = EEPROM.read(i);
-
     while(codif!=0) {
-
       if(codif%2==1) {
-
         arg0 = EEPROM.read(acc);
-
         arg1 = EEPROM.read(acc+1)*256;
-
         arg1+= arg0;
-
         if(String(arg1)==key) {
-
           return true;
-
         }
-
       }
-
       acc+=2;
-
       codif>>=1;
-
     }
 
     acc=(i+1)*16+3;
@@ -166,7 +150,6 @@ void addPassword(int val, int index) {
   j |= i;
 
   EEPROM.write(location,j);
-  Serial.println("added");
 }
 
  
@@ -228,8 +211,6 @@ void deleteAllPasswords() {
 // Methods that divides the command by parameters
 
 void processCommand(String command) {
-  Serial.println("Procesando string");
-  Serial.println(command);
   char temp[command.length()];
   command.toCharArray(temp, command.length());
   char* p;
@@ -271,55 +252,43 @@ void checkBattery()
 
 {
 
-  //batteryCharge = (analogRead(3)*5.4)/1024;
-
-  //if(batteryCharge<=-1) {
-
-    //digitalWrite(BATTERY_LED,HIGH);
-
-    //Serial.println("Emergency&&BatteryLow&&3&&cambie La Bateria");
-
-   
-
-    //if(timeBattery>0)
-
-    //{
-
-      //if(((-timeBattery+millis())%30000)<100)
-
-      //{
+  batteryCharge = (analogRead(3)*5.4)/1024;
+  if(batteryCharge<=-1) {
+    digitalWrite(BATTERY_LED,HIGH);
+    Serial.println("Emergency&&BatteryLow&&3&&cambie La Bateria");
+    if(timeBattery>0)
+    {
+      if(((-timeBattery+millis())%30000)<100)
+      {
 
        
 
-         //buzz();
+         buzz();
 
-      //}
+      }
 
-    //}
+    }
 
-    //else
+    else
+    {
+      timeBattery=millis();
+    delay(2000);
 
-    //{
+      digitalWrite(buzzPin,LOW);
 
-      //timeBattery=millis();
+    }
 
-      //delay(2000);
+  }
 
-      //digitalWrite(buzzPin,LOW);
+    else {
 
-    //}
+    digitalWrite(BATTERY_LED,LOW);
 
- // }
+    timeBattery=0;
 
-   // else {
+    digitalWrite(buzzPin,LOW);
 
-    //digitalWrite(BATTERY_LED,LOW);
-
-   // timeBattery=0;
-
-   // digitalWrite(buzzPin,LOW);
-
-  //}
+  }
 
 }
 
@@ -702,29 +671,16 @@ void loop() {
         }
 
         if(digitos==4){
-
             if(compareKey(clave)){
-
               color = "VERDE";
-
               analogWrite(redPin, 255);
-
               analogWrite(greenPin, 0);
-
               analogWrite(bluePin, 255);
-
               acabe = true;
-
               encontrado = true;
-
               incorrectos=0;
-
               currTime=millis();
-
               }
-
-         
-
           if (!encontrado){
 
               rojo();
@@ -785,7 +741,6 @@ void loop() {
             updatePassword(pass,index);
           }
           else if(lectura[0].equals("ADD_PASSWORD")){
-            Serial.println("Entre al IFF");
             int index = lectura[1].toInt();
             int pass = lectura[2].toInt();
             addPassword(pass,index);
@@ -797,6 +752,7 @@ void loop() {
           }
           else if(lectura[0].equals("DELETE_ALL_PASSWORDS"))
           {
+            Serial.println("SEBORROTODOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
             deleteAllPasswords();
           }
 }
