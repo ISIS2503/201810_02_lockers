@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- font awesome from BootstrapCDN -->
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+        <link href="/public/app.css" rel="stylesheet">
+    </head>
+    <body class="home">
+        <div class="container">
+            <div class="login-page clearfix">
+                <div class="logged-in-box auth0-box logged-in">
+                    <h1 id="logo"><img src="{{url_for('static', filename='Lockers.PNG')}}" /></h1>
+                    <h2>¡Bienvenido {{userinfo['name']}}!</h2>
+                    <form action = "http://localhost:3000/crear" method = "post">
+                       <p>Ingrese contraseña a crear y su indice:</p>
+                       <select name="index">
+                         <option value="1">1</option>
+                         <option value="2">2</option>
+                         <option value="3">3</option>
+                         <option value="4">4</option>
+                         <option value="5">5</option>
+                         <option value="6">6</option>
+                         <option value="7">7</option>
+                         <option value="8">8</option>
+                         <option value="9">9</option>
+                         <option value="10">10</option>
+                         <option value="11">11</option>
+                         <option value="12">12</option>
+                         <option value="13">13</option>
+                         <option value="14">14</option>
+                         <option value="15">15</option>
+                         <option value="16">16</option>
+                         <option value="17">17</option>
+                         <option value="18">18</option>
+                         <option value="19">19</option>
+                         <option value="20">20</option>
+                       </select>
+                       <p><input type = "password" name = "clave" maxlength="4"/></p>
+                       <input type = "submit" value = "Crear Clave" class="register-button" />
+                    </form>
+                    <form action = "http://localhost:3000/actualizarUna" method = "post">
+                       <p>Ingrese contraseña antigua y su indice:</p>
+                       <select name="index">
+                         <option value="1">1</option>
+                         <option value="2">2</option>
+                         <option value="3">3</option>
+                         <option value="4">4</option>
+                         <option value="5">5</option>
+                         <option value="6">6</option>
+                         <option value="7">7</option>
+                         <option value="8">8</option>
+                         <option value="9">9</option>
+                         <option value="10">10</option>
+                         <option value="11">11</option>
+                         <option value="12">12</option>
+                         <option value="13">13</option>
+                         <option value="14">14</option>
+                         <option value="15">15</option>
+                         <option value="16">16</option>
+                         <option value="17">17</option>
+                         <option value="18">18</option>
+                         <option value="19">19</option>
+                         <option value="20">20</option>
+                       </select>
+                       <p><input type = "password" name = "claveAntigua" maxlength="4"/></p>
+                       <p>Ingrese contraseña nueva:</p>
+                       <p><input type = "password" name = "claveNueva" maxlength="4"/></p>
+                       <input type = "submit" value = "Actualizar Clave" class="register-button" />
+                    </form>
+                    <form action = "http://localhost:3000/especifica" method = "post">
+                       <p>Ingrese contraseña a eliminar:</p>
+                       <select name="index">
+                         <option value="1">1</option>
+                         <option value="2">2</option>
+                         <option value="3">3</option>
+                         <option value="4">4</option>
+                         <option value="5">5</option>
+                         <option value="6">6</option>
+                         <option value="7">7</option>
+                         <option value="8">8</option>
+                         <option value="9">9</option>
+                         <option value="10">10</option>
+                         <option value="11">11</option>
+                         <option value="12">12</option>
+                         <option value="13">13</option>
+                         <option value="14">14</option>
+                         <option value="15">15</option>
+                         <option value="16">16</option>
+                         <option value="17">17</option>
+                         <option value="18">18</option>
+                         <option value="19">19</option>
+                         <option value="20">20</option>
+                       </select>
+                       <p><input type = "password" name = "clave" maxlength="4"/></p>
+                       <input type = "submit" value = "Eliminar clave" class="register-button" />
+                    </form>
+                    <a class="btn btn-primary" style="background-color:#c83030;" href="/todo">Eliminar todas las claves</a>
+                    <a class="btn btn-primary" style="margin-top: 15;" href="/login">Logout</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
