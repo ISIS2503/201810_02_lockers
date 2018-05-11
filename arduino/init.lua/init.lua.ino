@@ -9,6 +9,8 @@
 #define TOPIC_PUBLISH          "home/"
 #define SIZE_BUFFER_DATA       50
 
+long timeNow;
+
 //VARIABLES
 const char* idDevice = "cerradura";
 boolean     stringComplete = false;
@@ -21,14 +23,15 @@ WiFiClient    clientWIFI;
 PubSubClient  clientMQTT(clientWIFI);
 
 // CONFIG WIFI
-const char* ssid = "exp1";
-const char* password = "12345678";
+const char* ssid = "kiubo";
+const char* password = "quemas98";
 
 // CONFIG MQTT
-IPAddress serverMQTT (192,168,0,10);
-const uint16_t portMQTT = 1883;
-// const char* usernameMQTT = "admin";
-// const char* passwordMQTT = "admin";
+IPAddress serverMQTT (172,24,42,82);
+const char* mqtt_server="m11.cloudmqtt.com";
+const uint16_t portMQTT = 14337;
+const char* usernameMQTT = "kabs";
+const char* passwordMQTT = "kabs";
 
 void connectWIFI() {
   // Conectar a la red WiFi
@@ -69,7 +72,7 @@ void setup() {
   Serial.begin(9600);
   inputString.reserve(100);
 
-  clientMQTT.setServer(serverMQTT, portMQTT);
+  clientMQTT.setServer(mqtt_server, portMQTT);
   clientMQTT.setCallback(callback);
   connectWIFI();
   delay(1000);
@@ -82,8 +85,8 @@ void processData() {
 
       boolean conectMQTT = false;
       if (!clientMQTT.connected()) {
-        // if (!clientMQTT.connect(idDevice, usernameMQTT, passwordMQTT)) {
-        if (!clientMQTT.connect(idDevice)) {
+        if (!clientMQTT.connect(idDevice, usernameMQTT, passwordMQTT)) {
+        //if (!clientMQTT.connect(idDevice)) {
           conectMQTT = false;
         }
         conectMQTT = true;
@@ -136,8 +139,18 @@ void receiveData() {
     }
   }
 }
-
+boolean heartBeat=false;
 void loop() {
   receiveData();
   processData();
+  if(!heartBeat)
+  {
+   timeNow=millis(); 
+   heartBeat=true;
+  }
+  if(millis()-timeNow>10000){
+    heartBeat=false;
+    Serial.println("enviando");
+    clientMQTT.publish(TOPIC_PUBLISH,"HeartBeat&&HeartBeat&&4&&HeartBeat");
+  }
 }
