@@ -1,0 +1,28 @@
+extends layout
+include alarm
+block content
+  br
+  .w3-container
+    .w3-card-4.w3-center(style="padding: 15px;")
+     h2 Propietario
+     p #{JSON.stringify(inmueble[0].propietario)}
+     h2 Alarmas
+     h3 No visto
+     each val in inmueble[0].alarmas
+      -var tiempo = new Date(val.timeStamp*1000);
+      - var visto = val.visto;
+      if !visto
+        +mi-alarma-no-visto(val.tipo,val.informacion,tiempo)
+     h3 Visto
+     .wrap-collabsible
+        input#collapsible.toggle(type='checkbox' hidden)
+        |   
+        label.lbl-toggle(for='collapsible') More Info
+        |   
+        .collapsible-content
+            .content-inner
+                each val in inmueble[0].alarmas
+                    -var tiempo = new Date(val.timeStamp*1000);
+                    - var visto = val.visto;
+                    if visto
+                    +mi-alarma-visto(val.tipo,val.informacion,tiempo)

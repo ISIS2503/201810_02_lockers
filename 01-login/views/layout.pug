@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+    link(rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous")
+    script(src="https://cdn.auth0.com/js/auth0/8.7/auth0.min.js")
+    script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+  body
+    nav.w3-bar.w3-border.w3-light-grey( role="navigation" )
+      .w3-bar-item.w3-text-grey Lockers
+      a( href="/").w3-bar-item.w3-button Home
+      if loggedIn
+        a( href="/user" ).w3-bar-item.w3-button Mapa de Alarmas
+        a( id="qsLogoutBtn" href="/logout").w3-bar-item.w3-button Logout
+      else
+        a( id="qsLoginBtn" href="/login" ).w3-bar-item.w3-button Login
+    block content

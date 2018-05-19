@@ -1,0 +1,12 @@
+extends layout
+include inmueblesBlock
+block content
+  br
+  .w3-container
+    a(id="1" href="/user/" ) Todo
+    a(id="2" href="/user/alarma") Alarmas
+    a(id="3" href="/user/fallo") Fallos
+    .w3-card-4.w3-center(style="padding: 15px;")
+     script.
+      setInterval( function updateDiv(){ $( ".w3-card-4.w3-center" ).load(window.location.href + " .w3-card-4.w3-center" );}, 3000)
+     +inmuebles-tipo(inmuebles,href)

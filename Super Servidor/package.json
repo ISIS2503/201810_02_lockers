@@ -1,0 +1,20 @@
+{
+  "name": "arquisoft",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "express-jwt": "^5.3.1",
+    "express-jwt-authz": "^1.0.0",
+    "jwks-rsa": "^1.2.1",
+    "mongoose": "^5.1.1",
+    "nodemon": "^1.17.4"
+  }
+}

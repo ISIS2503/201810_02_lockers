@@ -1,0 +1,31 @@
+{
+  "unidades": [{
+    "inmuebles": [{
+      "hubs": [{
+        "cerradura": {
+          "id": 0,
+          "passwords": [{
+            "index": 0,
+            "value": 1234
+          }]
+        },
+        "alarmas": [{
+          "id": 0,
+          "tipo": "alarma",
+          "timeStamp": 123213,
+          "visto": false
+        }],
+        "propietario": {
+          "nombre": "kabs",
+          "email": "asdasd@asdasd.com",
+          "telefono": 123123123
+        },
+        "numeroApto": 101
+      }],
+      "id": 0
+    }],
+    "id": 0,
+    "nombre": "",
+    "barrio": "KennedyTown"
+  }]
+}

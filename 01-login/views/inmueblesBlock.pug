@@ -1,0 +1,14 @@
+mixin inmuebles-tipo(inmuebles,href)
+     - var i=0;
+     each val in inmuebles[0].unidades[0].inmuebles  
+      - var url = href+'/inmuebles/'+i+'/'+JSON.stringify(val.hubs[0].numeroApto);
+      - i=i+1;
+      - var verdad = false;
+      - var alarmado=false;
+      -for (var x = 0; x < val.hubs[0].alarmas.length; x++)
+       -verdad =  val.hubs[0].alarmas[x].visto;
+       -if(!verdad){alarmado=true; };     
+      if !alarmado       
+       a(class='button-large pure-button button-bien' href=url) #{JSON.stringify(val.hubs[0].numeroApto)}
+      else
+       a(class='button-large pure-button button-mal' href=url) #{JSON.stringify(val.hubs[0].numeroApto)}
